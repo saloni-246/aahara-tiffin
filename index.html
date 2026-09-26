@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AAHARA | A familiar meal, even when you're far from home.</title>
+    <meta name="description" content="AAHARA home-style tiffins for international students and workers in Korea." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <a href="#home" class="brand" aria-label="AAHARA home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-text">
+            <strong>AAHARA</strong>
+            <small>아하라</small>
+          </span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#this-week">This Week</a>
+          <a href="#profile">Build My Profile</a>
+          <a href="#order">Order a Tiffin</a>
+          <a href="#subscriptions">Subscriptions</a>
+          <a href="#my-aahara">My Aahara</a>
+          <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
+          <button class="nav-admin-btn" id="openAdminBtn">Admin</button>
+        </nav>
+        <button class="cart-pill" id="cartToggleBtn" aria-label="Open cart">
+          <span>Cart</span>
+          <strong id="cartCount">0</strong>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">HOME-STYLE TIFFIN • PERSONALIZED • BATCH-COOKED</span>
+            <h1>AAHARA</h1>
+            <h2>“낯선 곳에서도, 익숙한 한 끼.”</h2>
+            <p class="subtitle">A familiar meal, even when you're far from home.</p>
+            <p class="lead">Home-style tiffins shaped around your food culture, dietary needs and taste.</p>
+            <div class="cta-row">
+              <a href="#this-week" class="btn btn-primary">See This Week's Menu</a>
+              <a href="#profile" class="btn btn-secondary">Build My Food Profile</a>
+              <a href="#order" class="btn btn-ghost">Order One Tiffin</a>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="food-plate">
+              <div class="plate-bg">
+                <div class="dish-card dish-card-primary">
+                  <span class="dish-tag">Halal Chicken Curry</span>
+                  <div class="dish-visual rice"></div>
+                </div>
+                <div class="dish-card dish-card-secondary">
+                  <span class="dish-tag">Dal Tadka</span>
+                  <div class="dish-visual curry"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section">
+        <div class="container narrow">
+          <div class="story-copy">
+            <span class="section-kicker">Sometimes, one familiar meal feels like home.</span>
+            <h3>Moving to a new country can make everyday food harder to find.</h3>
+            <p>
+              Finding something familiar, suitable for your diet, affordable and convenient is not always easy.
+              Aahara brings home-style meals closer with a realistic weekly menu and a food profile built around how you actually eat.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="how-it-works">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">How it works</span>
+            <h3>Four simple steps</h3>
+          </div>
+          <div class="steps-grid">
+            <article class="step-card">
+              <span class="step-number">01</span>
+              <h4>Tell us how you eat.</h4>
+              <p>Your food culture, dietary needs, likes, dislikes and allergy information.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">02</span>
+              <h4>We plan the weekly menu.</h4>
+              <p>Aahara cooks in batches from a small, manageable menu designed around common demand.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">03</span>
+              <h4>We match suitable meals to you.</h4>
+              <p>Your profile helps us recommend the right tiffin from the weekly menu.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">04</span>
+              <h4>Receive your tiffin.</h4>
+              <p>Choose delivery or pickup and build a routine that feels familiar, flexible and easy.</p>
+            </article>
+          </div>
+          <div class="callout-box">
+            We cook in batches, not 50 different meals. Your preferences help us create the right combinations from the weekly menu.
+          </div>
+        </div>
+      </section>
+
+      <section id="this-week" class="menu-section">
+        <div class="container">
+          <div class="section-header split-header">
+            <div>
+              <span class="section-kicker">This week at Aahara</span>
+              <h3>What’s cooking this week?</h3>
+            </div>
+            <div class="badge-row" id="weeklyBadgeRow"></div>
+          </div>
+          <div id="weeklyMenuGrid" class="weekly-grid"></div>
+        </div>
+      </section>
+
+      <section id="profile" class="profile-section">
+        <div class="container profile-layout">
+          <div class="profile-intro">
+            <span class="section-kicker">Personalize it</span>
+            <h3>Build my food profile</h3>
+            <p>Tell Aahara how you eat. We’ll match the right tiffin from the weekly menu without making you choose from a huge list of ingredients.</p>
+            <div class="mini-card">
+              <strong>Food profile</strong>
+              <span>Diet + taste + likes + dislikes + allergies + spice + comfort food</span>
+            </div>
+          </div>
+          <div class="profile-card">
+            <div class="wizard-topbar">
+              <span class="wizard-step" id="wizardStepLabel">Step 1 of 14</span>
+              <div class="progress-track"><span id="wizardProgress"></span></div>
+            </div>
+            <div id="profileWizard"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="order" class="order-section">
+        <div class="container order-layout">
+          <div class="order-builder-panel">
+            <div class="section-header compact">
+              <span class="section-kicker">Order builder</span>
+              <h3>Build my tiffin</h3>
+            </div>
+            <div class="order-form-grid">
+              <label>
+                Day
+                <select id="daySelect"></select>
+              </label>
+              <label>
+                Order type
+                <select id="boOrderType">
+                  <option value="One-time">One-time</option>
+                  <option value="Weekly">Weekly</option>
+                  <option value="Monthly">Monthly</option>
+                  <option value="Advance">Advance</option>
+                </select>
+              </label>
+            </div>
+            <div id="orderBuilderOptions"></div>
+          </div>
+
+          <aside class="cart-panel" id="cartPanel">
+            <div class="section-header compact">
+              <span class="section-kicker">Your tiffin cart</span>
+              <h3>Ready to order</h3>
+            </div>
+            <div id="cartItems"></div>
+            <div class="cart-total">
+              <span>Total</span>
+              <strong id="cartTotal">₩0</strong>
+            </div>
+            <button id="checkoutBtn" class="btn btn-primary full-width">Checkout</button>
+          </aside>
+        </div>
+      </section>
+
+      <section id="subscriptions" class="plans-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">Flexible plans</span>
+            <h3>Choose the rhythm that suits you</h3>
+          </div>
+          <div class="plans-grid">
+            <article class="plan-card">
+              <span class="plan-badge">One-time</span>
+              <h4>Try one tiffin</h4>
+              <p>Perfect for a first experience or a week when you want something familiar.</p>
+            </article>
+            <article class="plan-card featured-plan">
+              <span class="plan-badge">Popular</span>
+              <h4>Weekly</h4>
+              <p>Receive your tiffin through the week with easy Keep, Swap and Skip controls.</p>
+            </article>
+            <article class="plan-card">
+              <span class="plan-badge">Regular</span>
+              <h4>Monthly</h4>
+              <p>Set a dependable rhythm with delivery or pickup built into your routine.</p>
+            </article>
+            <article class="plan-card">
+              <span class="plan-badge">Advance</span>
+              <h4>Pre-order</h4>
+              <p>Plan ahead for upcoming meals and keep your favorite meals ready.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="my-aahara" class="dashboard-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">My Aahara</span>
+            <h3>Your food profile and weekly routine</h3>
+          </div>
+          <div id="myAaharaContent"></div>
+        </div>
+      </section>
+
+      <section class="suggestions-section" id="suggestions">
+        <div class="container">
+          <div class="section-header split-header">
+            <div>
+              <span class="section-kicker">From home</span>
+              <h3>Missing something from home?</h3>
+            </div>
+            <button id="clearSuggestionsBtn" class="btn btn-ghost small-btn">Reset demo requests</button>
+          </div>
+          <div class="suggestions-grid">
+            <div class="suggestion-form-card">
+              <h4>Suggest a dish</h4>
+              <form id="suggestionForm">
+                <label>
+                  Dish name
+                  <input id="suggestionName" type="text" placeholder="Aloo paratha, kheer, dal makhani..." required />
+                </label>
+                <label>
+                  Notes
+                  <textarea id="suggestionNote" rows="4" placeholder="Tell us what you miss from home, regional favorites or special snacks."></textarea>
+                </label>
+                <button class="btn btn-primary full-width" type="submit">Add idea</button>
+              </form>
+            </div>
+            <div class="suggestions-list-card">
+              <h4>Popular requests</h4>
+              <div id="suggestionsList"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <div class="container two-column-layout">
+          <div>
+            <span class="section-kicker">About Aahara</span>
+            <h3>Food that still feels like yours.</h3>
+            <p>
+              Aahara is built for people who want to be nourished by food that feels familiar, comforting and culturally safe. Our model is practical: small kitchen, batch cooking, weekly menu, controlled personalization, and customer feedback.
+            </p>
+          </div>
+          <div class="value-list">
+            <div>
+              <strong>Home-style cooking</strong>
+              <p>Wholesome, familiar dishes made in a real kitchen, not a restaurant marketplace.</p>
+            </div>
+            <div>
+              <strong>Diet-aware matching</strong>
+              <p>We keep dietary restrictions and allergies in priority while matching taste preferences.</p>
+            </div>
+            <div>
+              <strong>Demand-led planning</strong>
+              <p>Customer profiles and suggestions help the kitchen shape a realistic weekly menu.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="faq-section">
+        <div class="container narrow">
+          <div class="section-header">
+            <span class="section-kicker">FAQ</span>
+            <h3>Common questions</h3>
+          </div>
+          <div class="faq-list">
+            <details open>
+              <summary>Can I order one tiffin without subscribing?</summary>
+              <p>Yes. You can order a single tiffin or choose a recurring plan whenever you want.</p>
+            </details>
+            <details>
+              <summary>Do you cook separate meals for every customer?</summary>
+              <p>No. Aahara works from a practical weekly menu and matches suitable components and meal combinations to each customer profile.</p>
+            </details>
+            <details>
+              <summary>How do allergies work?</summary>
+              <p>Allergy information is treated as a higher priority than general preferences. Dishes with allergens can be clearly marked and filtered out when needed.</p>
+            </details>
+            <details>
+              <summary>What if I want halal non-vegetarian meals?</summary>
+              <p>When the weekly menu includes suitable halal non-veg dishes, those remain available to customers with halal + non-vegetarian preferences.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="#home" class="brand footer-brand">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span class="brand-text">
+              <strong>AAHARA</strong>
+              <small>아하라</small>
+            </span>
+          </a>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#this-week">This Week</a></li>
+            <li><a href="#profile">Build My Profile</a></li>
+            <li><a href="#order">Order a Tiffin</a></li>
+            <li><a href="#my-aahara">My Aahara</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Operational note</h4>
+          <p>Demo data only. This site is structured so a real backend and payment flow can be plugged in later.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="checkoutModal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Checkout</h3>
+          <button id="closeCheckoutBtn" class="close-btn" aria-label="Close checkout">×</button>
+        </div>
+        <form id="checkoutForm">
+          <div class="checkout-grid">
+            <label>
+              Full name
+              <input type="text" id="checkoutName" value="Aisha Khan" required />
+            </label>
+            <label>
+              Contact number
+              <input type="tel" id="checkoutPhone" value="010-1234-5678" required />
+            </label>
+            <label>
+              Delivery or pickup
+              <select id="deliveryModeSelect">
+                <option value="Delivery">Delivery</option>
+                <option value="Pickup">Pickup</option>
+              </select>
+            </label>
+            <label>
+              Preferred slot
+              <select id="deliverySlotSelect">
+                <option>12:00</option>
+                <option>13:30</option>
+                <option>18:00</option>
+                <option>19:30</option>
+              </select>
+            </label>
+            <label>
+              Zone / pickup hub
+              <select id="zoneSelect"></select>
+            </label>
+            <label>
+              Notes
+              <textarea id="checkoutNotes" rows="3" placeholder="Extra instructions, door code, etc."></textarea>
+            </label>
+          </div>
+          <div class="checkout-action-row">
+            <div class="cart-total small-total">
+              <span>Order total</span>
+              <strong id="checkoutTotal">₩0</strong>
+            </div>
+            <button class="btn btn-primary" type="submit" id="placeOrderBtn">Place Order</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="adminModal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-card admin-modal-card">
+        <div class="modal-header">
+          <h3>Kitchen Access</h3>
+          <button id="closeAdminBtn" class="close-btn" aria-label="Close admin">×</button>
+        </div>
+        <div id="adminLoginView" class="admin-login-box">
+          <p>Enter the demo kitchen password to access admin features.</p>
+          <label>
+            Password
+            <input id="adminPasswordInput" type="password" placeholder="••••••••" />
+          </label>
+          <button id="adminLoginBtn" class="btn btn-primary full-width">Open Dashboard</button>
+        </div>
+        <div id="adminDashboardView" class="hidden admin-dashboard-box">
+          <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="menu">Menu</button>
+            <button class="admin-tab" data-tab="demand">Demand</button>
+            <button class="admin-tab" data-tab="zones">Zones</button>
+            <button class="admin-tab" data-tab="suggestions">Requests</button>
+            <button class="admin-tab" data-tab="feedback">Feedback</button>
+          </div>
+          <div id="adminTabContent"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
